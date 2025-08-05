@@ -1,6 +1,8 @@
 # lua-resty-openidc-example
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+https://github.com/kg0r0/lua-resty-openidc-example
+
 ## Table of Contents
 - [Overview](#overview)
 - [Run](#run)
