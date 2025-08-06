@@ -8,5 +8,6 @@ services:
     volumes:
       - ./nginx/main.lua:/usr/local/openresty/main.lua:ro
       - ./nginx/nginx.conf:/usr/local/openresty/nginx/conf/nginx.conf:ro
+      - ./nginx/openidc.lua:/usr/local/openresty/luajit/share/lua/5.1/resty/openidc.lua:ro
   redis:
     image: "redis:7.4.5-bookworm"
