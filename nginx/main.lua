@@ -1,16 +1,18 @@
 local opts = {
-    ssl_verify = "no",
-    redirect_uri = "http://localhost/redirect_uri",
-    discovery = "https://sso-test.exodushk.com/.well-known/openid-configuration",
-    client_id = "headlamp-default-test",
-    client_secret = "d1515790ce6d0a31f3a2",
-    refresh_session_interval = 3600,
-    access_token_expires_in = 3600,
+    ssl_verify = ngx.var.oidc_ssl_verify,
+    redirect_uri = ngx.var.oidc_redirect_uri,
+    discovery = ngx.var.oidc_discovery_url,
+    client_id = ngx.var.oidc_client_id,
+    client_secret = ngx.var.oidc_client_secret,
+    refresh_session_interval = ngx.var.oidc_refresh_session_interval,
+    access_token_expires_in = ngx.var.oidc_access_token_expires_in,
     session_contents = {
         id_token = true,
         user = true,
     },
 }
+
+-- ngx.log(ngx.ERR, "openidc.authenticate opts: ", require("cjson").encode(opts))
 
 local openidc = require("resty.openidc")
 openidc.set_logging(nil, { DEBUG = ngx.DEBUG })
